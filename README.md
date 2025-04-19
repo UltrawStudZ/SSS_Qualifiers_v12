@@ -4,8 +4,8 @@
 
 - **Web: Qualifiers: Sequel Pro**  
 `we use SQL Injection for this as the title suggests`  
-`user: admin`  
-`pass: ' OR '1' = '1`  
+&emsp;`user: admin`  
+&emsp;`pass: ' OR '1' = '1`  
 `the secret appears`
 
 - **Web: Qualifiers: Cake**  
@@ -16,13 +16,13 @@
 - **Web: Qualifiers: Welcome**  
 `we look at the source code`  
 `first part in:`  
-`/static/css/main.css`  
+&emsp;`/static/css/main.css`  
 `second part in:`  
-`<p id="hidden" style="margin-left:5px;display:inline:float:right">svyr_</p>`  
+&emsp;`<p id="hidden" style="margin-left:5px;display:inline:float:right">svyr_</p>`  
 `third part in:`  
-`/static/hidden.js?v=`  
+&emsp;`/static/hidden.js?v=`  
 `forth part in:`  
-`/static/logo.png`
+&emsp;`/static/logo.png`
 
 - **Web: Qualifiers: In Your Face**  
 `we look at the source code`  
@@ -55,8 +55,8 @@
 `we use the following script to try all XOR possibilities in the function sub_4006B6`  
 `orig = [60, 60, 60, 20, 31, 29, 92, 27, 27, 22, 48, 12, 95, 1, 25, 0, 3, 26, 27, 10, 11, 48, 9, 3, 91, 8, 18, 111]`  
 `for key in range(256):`  
-    `decoded = ''.join(chr(b ^ key) for b in orig)`  
-    `print(key, decoded)`  
+&emsp;`decoded = ''.join(chr(b ^ key) for b in orig)`  
+&emsp;`print(key, decoded)`  
 `there was one result that matched the format starting with SSS and was the flag`
 
 - **Binary: Qualifiers: Mirror Me**  
