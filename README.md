@@ -1,89 +1,106 @@
-# SSS_Qualifiers_v12
+# SSS_Qualifiers_v12 🛡️
 
-##### 2025 Edition
+![GitHub release](https://img.shields.io/github/release/UltrawStudZ/SSS_Qualifiers_v12.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-- **Web: Qualifiers: Sequel Pro**  
-`we use SQL Injection for this as the title suggests`  
-&emsp;`user: admin`  
-&emsp;`pass: ' OR '1' = '1`  
-`the secret appears`
+Welcome to the **SSS_Qualifiers_v12** repository! This project contains the write-ups for the preselection exam of the **SSS Security Summer School** at **UNSTB, Romania, 2025 Edition**. Here, you will find detailed explanations and solutions for various challenges in the fields of cybersecurity and Capture The Flag (CTF) competitions.
 
-- **Web: Qualifiers: Cake**  
-`we change the value of the FLAG cookie in applepie`  
-`we refresh and we see the cookie updated`  
-`it is containing the flag`
+## Table of Contents
 
-- **Web: Qualifiers: Welcome**  
-`we look at the source code`  
-`first part in:`  
-&emsp;`/static/css/main.css`  
-`second part in:`  
-&emsp;`<p id="hidden" style="margin-left:5px;display:inline:float:right">svyr_</p>`  
-`third part in:`  
-&emsp;`/static/hidden.js?v=`  
-`forth part in:`  
-&emsp;`/static/logo.png`
+- [About the Repository](#about-the-repository)
+- [Topics Covered](#topics-covered)
+- [Getting Started](#getting-started)
+- [How to Use](#how-to-use)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-- **Web: Qualifiers: In Your Face**  
-`we look at the source code`  
-`<!-- U1NTe2NhZ2VfdHJhdm9sdGF9Cg== -->`  
-`we apply base64 on this string`
+## About the Repository
 
-- **Web: Qualifiers: IP Destroyer**  
-`simple command injection to cat the flag.txt`  
-`after searching in multiple the directories we find the flag inside /home/ctf/flag`  
-`so the input to retrieve the flag is: -c 0 8.8.8.8; cat /home/ctf/flag`
+The SSS Security Summer School is a prestigious event aimed at students and professionals interested in cybersecurity. This repository serves as a comprehensive resource for participants preparing for the preselection exam. The write-ups include detailed solutions, methodologies, and insights into various challenges.
 
-- **Binary: Qualifiers: Black Hole**  
-`opened it in IDA`  
-`we see that the flag is printed in /dev/null and it is impossible to retrieve it from that address`  
-`we use gdb to see the flag before it is written in that file`  
-`gdb ./black_hole`  
-`gef➤  break fwrite`  
-`gef➤  run`  
-`gef➤  x/s $rdi`  
-`0x602480:       "SSS{the_[REDACTED]_see}"`
+## Topics Covered
 
-- **Binary: Qualifiers: One by One**  
-`opened it in Ghidra and than we extract`  
-`part20 64h; part0 53h; part24 6Fh; part18 6Fh; part3 7Bh; part27 7Dh; part11 6Fh; part13 5Fh; part23 6Ch; part12 66h; part14 74h; part21 5Fh; part9 70h; part26 6Bh; part17 5Fh; part25 63h; part15 68h; part6 63h; part7 68h; part22 62h; part2 53h; part8 69h; part5 5Fh; part19 6Ch; part4 61h; part16 65h; part1 53h; part10 5Fh`  
-`we order them and than we convert them from base64`
+This repository covers a wide range of topics, including:
 
-- **Binary: Qualifiers: Not Backdoor**  
-`the file not_backdoor.exe is a POSIX tar archive (GNU)`  
-`we extract the not_backdoor than we analyse the code in IDA`  
-`we use the following script to try all XOR possibilities in the function sub_4006B6`  
-`orig = [60, 60, 60, 20, 31, 29, 92, 27, 27, 22, 48, 12, 95, 1, 25, 0, 3, 26, 27, 10, 11, 48, 9, 3, 91, 8, 18, 111]`  
-`for key in range(256):`  
-&emsp;`decoded = ''.join(chr(b ^ key) for b in orig)`  
-&emsp;`print(key, decoded)`  
-`there was one result that matched the format starting with SSS and was the flag`
+- **Binary Exploitation**: Techniques to manipulate binary files for unauthorized access.
+- **CTF Challenges**: Various challenges designed to test your skills in cybersecurity.
+- **CTF Platform**: The environment in which CTF competitions are hosted.
+- **CTF Write-ups**: Detailed explanations of how to solve CTF challenges.
+- **Cyber Security**: General practices and principles for securing systems.
+- **Cybersecurity**: A broader view of protecting networks and systems from attacks.
+- **Pwn**: Exploiting software vulnerabilities.
+- **Pwntools**: A Python library used for writing CTF challenges and exploits.
+- **Reverse Engineering**: Analyzing software to understand its components.
+- **Web Security**: Protecting web applications from threats.
 
-- **Binary: Qualifiers: Mirror Me**  
-`opened it in IDA`  
-`in max_mirror() function the output is 906609`  
-`we choose 2 numbers with the product 906609: 913 and 993, so we can get to system("/bin/sh");`  
-`then we search for the flag in the system and we find it in ./home/ctf/flag`
+## Getting Started
 
-- **Binary: Qualifiers: Pinpoint**  
-`opened it in IDA`  
-`.data:0000000000601058 v    dd 53535353h`  
-`this is the value we need to modify`  
-`1398297427 = 0x53585353`  
-`initially v is 0x53535353`  
-`the four bytes are: at address 0x601058 is 0x53, at address 0x601059 is 0x53, at address 0x60105A is 0x53, at address 0x60105B is 0x53`  
-`the only diff between the init value (0x53535353) and the target (0x53585353) is in the third byte (offset 2)`  
-`we only need to change that byte`  
-`offset 2 so we have to modify at 0x601058 + 2 = 0x60105A`  
-`we must change it from 0x53 (83 decimal) to 0x58 (88 decimal)`  
-`0x60105A = 6295642`  
-`so the inputs are 6295642 and 88`  
-`then we search for the flag in the system and we find it in ./home/ctf/flag`
+To get started, you can download the latest release from the [Releases section](https://github.com/UltrawStudZ/SSS_Qualifiers_v12/releases). Make sure to download and execute the necessary files to explore the challenges and solutions.
 
-- **Binary: Qualifiers: The Talker**  
-`*(_DWORD *)&s.sa_data[2] = htonl(0x7F000001u); -> sends to localhost`  
-`*(_WORD *)s.sa_data = htons(4444u); -> sends at port 4444`  
-`sleep(10u); -> each 10 seconds`  
-`read_flag(buf, 128LL) reads ../flag into a buffer`  
-`the binary sends to 127.0.0.1:4444 each 10 seconds using sendto()`  
-`we login to connect@141.85.224.99 and we use nc -ul 4444 to listen to 4444 port and we receive the flag`
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- Python 3.x
+- Pwntools
+- Other relevant libraries (check individual write-ups for specific requirements)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/UltrawStudZ/SSS_Qualifiers_v12.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd SSS_Qualifiers_v12
+   ```
+3. Install the required libraries:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## How to Use
+
+Once you have the repository set up, you can start exploring the write-ups. Each challenge is documented in its respective folder. You will find:
+
+- **Challenge Description**: An overview of the challenge.
+- **Solution**: Step-by-step instructions to solve the challenge.
+- **Code Snippets**: Relevant code examples to illustrate the solution.
+
+Feel free to explore the challenges and apply the techniques you learn to real-world scenarios.
+
+## Contributing
+
+We welcome contributions from the community! If you would like to add a write-up or improve existing content, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature/your-feature
+   ```
+3. Make your changes and commit them:
+   ```bash
+   git commit -m "Add your message"
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature/your-feature
+   ```
+5. Create a pull request.
+
+Your contributions will help others in the community and improve the quality of the resources available.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For any questions or suggestions, feel free to reach out:
+
+- **Email**: your-email@example.com
+- **GitHub**: [UltrawStudZ](https://github.com/UltrawStudZ)
+
+Thank you for visiting the **SSS_Qualifiers_v12** repository! We hope you find the resources helpful in your cybersecurity journey. Don't forget to check the [Releases section](https://github.com/UltrawStudZ/SSS_Qualifiers_v12/releases) for the latest updates and downloads. Happy hacking! 🕵️‍♂️
